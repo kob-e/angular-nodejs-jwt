@@ -5,8 +5,38 @@
   <label>desc:
     <input formControlName="desc">
   </label>
+  <hr>
+  <div formArrayName="questions">
+      <h3>Questions</h3>
+      <button (click)="addQuestion()">Add question</button>
+      <hr>
+      <div *ngFor="let question of quizForm.get('questions').controls; let i=index">
+        <div [formGroupName]="i">
+          <label>
+            qText
+            <input formControlName="qText" placeholder="qText">
+          </label>
+          <label>answer1
+            <input formControlName="answer1" placeholder="answer1">
+          </label>
+          <label>answer2
+            <input formControlName="answer2" placeholder="answer2">
+          </label>
+          <label>answer3
+            <input formControlName="answer3" placeholder="answer3">
+          </label>
+          <label>answer4
+            <input formControlName="answer4" placeholder="answer4">
+          </label>
+          <label>correctAnswer
+            <input formControlName="correctAnswer" placeholder="correctAnswer">
+          </label>
+          <hr>
+        </div>
+      </div>
+    </div>
   <button [disabled]="!quizForm.valid">
-    {{ quizForm.controls.id.value != '' ? "Update " : "Create "}} 
+    {{ quizForm.controls.id.value != '' ? "Update " : "Create "}}
     quiz
   </button>
 </form>
