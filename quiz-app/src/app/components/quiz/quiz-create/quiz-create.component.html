@@ -1,6 +1,12 @@
-<form>
+<form [formGroup]="quizForm" (ngSubmit)="onSubmit()">
   <label>Name:
-    <input [(ngModel)]="quiz.name" name='quizName'>
+    <input formControlName="name">
   </label>
-  <button (click)="create()">Create quiz</button>
+  <label>desc:
+    <input formControlName="desc">
+  </label>
+  <button [disabled]="!quizForm.valid">
+    {{ quizForm.controls.id.value != '' ? "Update " : "Create "}} 
+    quiz
+  </button>
 </form>

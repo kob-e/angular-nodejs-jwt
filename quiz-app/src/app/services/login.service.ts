@@ -13,6 +13,7 @@ const ENDPOINTS = {
 })
 export class LoginService {
   private userToken: string;
+  private USER_TOKEN: string = 'jwt';
 
   constructor(private httpClient: HttpClient) { }
 
@@ -24,6 +25,7 @@ export class LoginService {
       }),
       map((tokenRes: string) => {
         this.userToken = tokenRes;
+        window.localStorage.setItem(this.USER_TOKEN, tokenRes);
         console.log(tokenRes);
         return tokenRes;
       })
@@ -31,10 +33,10 @@ export class LoginService {
   }
 
   getToken(): string {
-    return this.userToken;
+    return window.localStorage.getItem(this.USER_TOKEN);
   }
 
   isLogged() {
-    return typeof this.userToken !== 'undefined';
+    return this.getToken() != null;
   }
 }

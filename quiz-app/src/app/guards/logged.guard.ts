@@ -18,7 +18,7 @@ export class LoggedGuard implements CanActivate {
       const logged = this.loginService.isLogged();
       if (!logged) {
         this.router.navigate(['login']);
-      } 
+      }
       return logged;
   }
 }

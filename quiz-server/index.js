@@ -46,7 +46,6 @@ app.post('/login', function (req, res) {
 app.post('/quiz', function (req, res) {
     const postData = req.body;
     console.log(postData);
-
     res.json("thanks");
 });
 

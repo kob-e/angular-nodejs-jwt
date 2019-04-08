@@ -7,7 +7,8 @@ import { LoggedGuard } from './guards/logged.guard';
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent  },
-  { path: 'quiz', component: QuizCreateComponent, canActivate: [LoggedGuard] }
+  { path: 'quiz', component: QuizCreateComponent, canActivate: [LoggedGuard] },
+  { path: 'quiz/:id', component: QuizCreateComponent, canActivate: [LoggedGuard] }
 ];
 
 @NgModule({
