@@ -35,10 +35,10 @@ export class QuizCreateComponent implements OnInit {
   }
 
   createForm() {
-    this.quizForm = new FormGroup({
-      id: new FormControl(this.quiz ? this.quiz.id : ''),
-      name: new FormControl(this.quiz ? this.quiz.name : '', [Validators.required]),
-      desc: new FormControl(this.quiz ? this.quiz.desc : '')
+    this.quizForm = this.formBuilder.group({
+      id: [this.quiz ? this.quiz.id : ''],
+      name: [this.quiz ? this.quiz.name : '', [Validators.required]],
+      desc: [this.quiz ? this.quiz.desc : '']
     });
   }
 
